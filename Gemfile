@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'unicorn'
 
 group :development, :test do
-  gem 'byebug'
+  # gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'spring'
   gem 'web-console', '~> 2.0'
