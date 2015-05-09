@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508234743) do
+ActiveRecord::Schema.define(version: 20150509215213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,8 +75,6 @@ ActiveRecord::Schema.define(version: 20150508234743) do
     t.integer  "actual_points"
     t.boolean  "complete",         default: false
     t.datetime "completed_on"
-    t.integer  "created_by_id"
-    t.integer  "updated_by_id"
     t.integer  "epic_id"
     t.integer  "sprint_id"
     t.datetime "created_at",                       null: false
@@ -85,6 +83,13 @@ ActiveRecord::Schema.define(version: 20150508234743) do
 
   add_index "stories", ["epic_id"], name: "index_stories_on_epic_id", using: :btree
   add_index "stories", ["sprint_id"], name: "index_stories_on_sprint_id", using: :btree
+
+  create_table "stories_users", id: false, force: :cascade do |t|
+    t.integer "story_id"
+    t.integer "user_id"
+  end
+
+  add_index "stories_users", ["story_id", "user_id"], name: "index_stories_users_on_story_id_and_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -103,16 +108,5 @@ ActiveRecord::Schema.define(version: 20150508234743) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "workers", force: :cascade do |t|
-    t.integer  "worker_id"
-    t.string   "worker_type"
-    t.integer  "assignable_id"
-    t.string   "assignable_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "workers", ["assignable_type", "assignable_id"], name: "index_workers_on_assignable_type_and_assignable_id", using: :btree
 
 end

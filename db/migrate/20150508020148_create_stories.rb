@@ -9,8 +9,6 @@ class CreateStories < ActiveRecord::Migration
       t.integer :actual_points
       t.boolean :complete, default: false
       t.datetime :completed_on
-      t.integer :created_by_id
-      t.integer :updated_by_id
       t.integer :epic_id
       t.integer :sprint_id
 
