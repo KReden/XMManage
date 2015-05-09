@@ -11,10 +11,13 @@ class CreateStories < ActiveRecord::Migration
       t.datetime :completed_on
       t.integer :created_by_id
       t.integer :updated_by_id
-
-      t.references :assignable, polymorphic: true, indes: true
+      t.integer :epic_id
+      t.integer :sprint_id
 
       t.timestamps null: false
     end
+
+    add_index :stories, :epic_id
+    add_index :stories, :sprint_id
   end
 end
