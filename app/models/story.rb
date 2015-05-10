@@ -5,4 +5,6 @@ class Story < ActiveRecord::Base
   has_one :epic
   has_many :comments
   has_many :acceptance_criterium
+
+  validates_presence_of :name
 end

@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Story, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Story, type: :model do
+  context "Validations" do
+    it "should validate the presence of name" do
+      story = FactoryGirl.build(:story, name: nil)
+      expect(story).to be_invalid
+    end
+  end
 end
