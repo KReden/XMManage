@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :stories
   has_many :comments
   has_one :profile
+
+  validates :email, presence: true, uniqueness: true
+
 end
