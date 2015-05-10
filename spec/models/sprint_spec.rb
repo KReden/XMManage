@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Sprint, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Sprint, type: :model do
+  context "Validations" do
+    it "should validate the presence of name" do
+      sprint = FactoryGirl.build(:sprint, name: nil)
+      expect(sprint).to be_invalid
+    end
+  end
 end
