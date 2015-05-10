@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Profile, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe :profile, type: :model do
+  context "Validations" do
+    it "should validate the presence of user_id" do
+      profile = FactoryGirl.build(:profile, user: nil)
+      expect(profile).to be_invalid
+    end
+  end
 end
