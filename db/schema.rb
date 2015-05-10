@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509215213) do
+ActiveRecord::Schema.define(version: 20150510020752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "acceptance_criterium", force: :cascade do |t|
+  create_table "acceptance_criteria", force: :cascade do |t|
     t.integer  "story_id",   null: false
-    t.string   "given"
-    t.string   "when"
-    t.string   "then"
+    t.string   "gvn"
+    t.string   "whn"
+    t.string   "thn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "acceptance_criterium", ["story_id"], name: "index_acceptance_criterium_on_story_id", using: :btree
+  add_index "acceptance_criteria", ["story_id"], name: "index_acceptance_criteria_on_story_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "comment"
