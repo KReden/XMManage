@@ -1,0 +1,1 @@
+[![CircleCI branch](https://img.shields.io/circleci/project/BrightFlair/PHP.Gt/master.svg?style=flat-square)](https://circleci.com/gh/kreden/XMManage.png?circle-token=:7f6c7b5a5528faaca28cfb849a5defdab7b31d31)
